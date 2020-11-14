@@ -3,12 +3,16 @@
 - Input
 - Input (verification pin)
 - Input (phone number)
+
 - Check box
+
 - Button lg
 - Button sm
+
 - Card sm (categories)
 - Card sm (points)
 - Card sm (profile)
+
 - Card lg (budget)
 - Card lg (QR)
 - Card lg (details)
@@ -18,6 +22,7 @@
 - Card lg (recommendation)
 - Card lg (chart)
 - Card lg (complete verification)
+
 - Toggle switch button
 - Contact
 - Section header box
