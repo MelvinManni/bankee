@@ -1,16 +1,39 @@
 import React from 'react';
-import {StatusBar, StyleSheet, Image, Text, View} from 'react-native';
+import {
+  StatusBar,
+  StyleSheet,
+  Image,
+  Text,
+  View,
+  Dimensions,
+} from 'react-native';
 
+const screenWIdth = Math.round(Dimensions.get('window').width);
 
 const AccountCreated = () => {
   return (
     <View style={styles.container}>
+      <StatusBar backgroundColor="#fff" barStyle="dark-content" />
       <View style={styles.imageHolder}>
-        <Image style={styles.image} source={require("../../assets/Thumbs-Up.png")} />
+        <Image
+          style={styles.image}
+          source={require('../../assets/Thumbs-Up.png')}
+        />
       </View>
-      <View>
+      <View style={styles.mt}>
         <Text style={styles.title}>Account Created!</Text>
-        <Text style={{...styles.text, ...styles.mt}}>Dear user your account has been created successfully. Continue to start using app</Text>
+        <Text style={{...styles.text, ...styles.mt}}>
+          Dear user your account has been created successfully. Continue to
+          start using app
+        </Text>
+      </View>
+
+      <View style={styles.mt} >
+        <Text style={{...styles.text, ...styles.mt}}>
+          by clicking start, you agree to our{' '}
+          <Text style={styles.link}>Privacy Policy</Text> our{' '}
+          <Text style={styles.link}>Teams and Conditions</Text>
+        </Text>
       </View>
     </View>
   );
@@ -19,9 +42,12 @@ const AccountCreated = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'space-evenly',
+    justifyContent: 'space-between',
     alignItems: 'center',
     textAlign: 'center',
+    paddingHorizontal: 35,
+    paddingVertical: 55,
+    backgroundColor: '#fff',
   },
   mt: {
     marginTop: 20,
@@ -32,7 +58,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   image: {
-    width: 300,
+    width: screenWIdth * 0.75,
   },
   title: {
     fontFamily: 'DM Sans',
