@@ -7,12 +7,14 @@ import {
   View,
   Dimensions,
 } from 'react-native';
+import CustomButton from '../../Components/Button/Button';
+import CustomView from '../../Components/View/CustomView';
 
 const screenWIdth = Math.round(Dimensions.get('window').width);
 
 const AccountCreated = () => {
   return (
-    <View style={styles.container}>
+    <CustomView style={styles.container}>
       <StatusBar backgroundColor="#fff" barStyle="dark-content" />
       <View style={styles.imageHolder}>
         <Image
@@ -29,13 +31,16 @@ const AccountCreated = () => {
       </View>
 
       <View style={styles.mt} >
+        <CustomButton>
+          Continue
+        </CustomButton>
         <Text style={{...styles.text, ...styles.mt}}>
           by clicking start, you agree to our{' '}
           <Text style={styles.link}>Privacy Policy</Text> our{' '}
           <Text style={styles.link}>Teams and Conditions</Text>
         </Text>
       </View>
-    </View>
+    </CustomView>
   );
 };
 
@@ -47,7 +52,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     paddingHorizontal: 35,
     paddingVertical: 55,
-    backgroundColor: '#fff',
   },
   mt: {
     marginTop: 20,

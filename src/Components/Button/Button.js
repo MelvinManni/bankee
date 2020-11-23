@@ -1,8 +1,8 @@
 import React from 'react';
-import { Children } from 'react';
+import {Children} from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 
-const ButtonLarge = ({title, btnColor,children, ...rest}) => {
+const CustomButton = ({title, btnColor, children, ...rest}) => {
   const buttonStyles = [styles.button];
   if (btnColor) {
     buttonStyles.push({backgroundColor: btnColor});
@@ -37,4 +37,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ButtonLarge;
+export default CustomButton;
