@@ -11,7 +11,7 @@ import FooterBottomLine from '../../Components/Footer/FooterBottomLine';
 import CustomView from '../../Components/View/CustomView';
 import InputField from '../../Components/Input/Input';
 
-const SignIn = () => {
+const SignIn = ({navigation}) => {
   const [email, setEmail] = useState('');
   const [emailFocus, setEmailFocus] = useState(false);
   const [passwordFocus, setPasswordFocus] = useState(false);
@@ -60,7 +60,13 @@ const SignIn = () => {
         </TouchableOpacity>
       </View>
 
-      <ButtonLarge btnColor="#7165E3">Sign in My Account</ButtonLarge>
+      <ButtonLarge
+        onPress={() => {
+          navigation.navigate('AccountCreated');
+        }}
+        btnColor="#7165E3">
+        Sign in My Account
+      </ButtonLarge>
 
       <View style={styles.bottom}>
         <Text>Don't have an account? -</Text>
