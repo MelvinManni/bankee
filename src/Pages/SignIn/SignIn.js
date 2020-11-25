@@ -62,7 +62,7 @@ const SignIn = ({navigation}) => {
 
       <ButtonLarge
         onPress={() => {
-          navigation.navigate('AccountCreated');
+          navigation.navigate('AddNumber');
         }}
         btnColor="#7165E3">
         Sign in My Account

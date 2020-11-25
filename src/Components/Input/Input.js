@@ -13,6 +13,7 @@ const InputField = ({
   swapIcon,
   placeholder,
   autoCapitalize,
+  style,
   ...rest
 }) => {
   return (
@@ -25,7 +26,7 @@ const InputField = ({
         value={value}
         onBlur={() => setFocus(false)}
         onFocus={() => setFocus(true)}
-        style={focus ? styles.focus : styles.input}
+        style={[focus ? styles.focus : styles.input, style]}
       />
       {password && (
         <TouchableOpacity style={styles.eye}>

@@ -29,7 +29,6 @@ const AccountCreated = ({navigation}) => {
           start using app
         </Text>
       </View>
-
       <View style={styles.mt}>
         <CustomButton
           onPress={() => {
