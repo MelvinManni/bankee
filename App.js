@@ -5,6 +5,7 @@ import SignIn from './src/Pages/SignIn/SignIn';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import AccountCreated from './src/Pages/AccountCreated/Index';
+import TouchId from './src/Pages/TouchId/TouchId';
 
 const Stack = createStackNavigator();
 
@@ -12,13 +13,33 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Splash"
         screenOptions={{
-          headerShown: false,
-        }}>
-        <Stack.Screen name="Splash" component={SplashScreen} />
-        <Stack.Screen name="Signin" component={SignIn} />
-        <Stack.Screen name="AccountCreated" component={AccountCreated} />
+          headerTitle: false,
+        }}
+        initialRouteName="Splash">
+        <Stack.Screen
+          options={{
+            headerShown: false,
+          }}
+          name="Splash"
+          component={SplashScreen}
+        />
+        <Stack.Screen
+          options={{
+            headerShown: false,
+          }}
+          name="Signin"
+          component={SignIn}
+        />
+        <Stack.Screen
+          options={{
+            headerShown: false,
+          }}
+          name="AccountCreated"
+          component={AccountCreated}
+        />
+
+        <Stack.Screen name="TouchId" component={TouchId} />
       </Stack.Navigator>
     </NavigationContainer>
   );

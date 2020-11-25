@@ -7,42 +7,36 @@ import {
   View,
   Dimensions,
 } from 'react-native';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 import CustomButton from '../../Components/Button/Button';
+import FooterBottomLine from '../../Components/Footer/FooterBottomLine';
 import CustomView from '../../Components/View/CustomView';
 
 const screenWIdth = Math.round(Dimensions.get('window').width);
 
-const AccountCreated = ({navigation}) => {
+const TouchId = () => {
   return (
     <CustomView style={styles.container}>
       <StatusBar backgroundColor="#fff" barStyle="dark-content" />
-      <View style={styles.imageHolder}>
+      <TouchableOpacity activeOpacity={0.7} style={styles.imageHolder}>
         <Image
           style={styles.image}
-          source={require('../../assets/Thumbs-Up.png')}
+          source={require('../../assets/fingerId.png')}
         />
-      </View>
+      </TouchableOpacity>
       <View style={styles.mt}>
-        <Text style={styles.title}>Account Created!</Text>
+        <Text style={styles.title}>Use Touch ID to authorise payments</Text>
         <Text style={{...styles.text, ...styles.mt}}>
-          Dear user your account has been created successfully. Continue to
-          start using app
+          Activate touch ID so you Don’t need to confirm your PIN every time you
+          want to send money
         </Text>
       </View>
 
-      <View style={styles.mt}>
-        <CustomButton
-          onPress={() => {
-            navigation.navigate('TouchId');
-          }}>
-          Continue
-        </CustomButton>
-        <Text style={{...styles.text, ...styles.mt}}>
-          by clicking start, you agree to our{' '}
-          <Text style={styles.link}>Privacy Policy</Text> our{' '}
-          <Text style={styles.link}>Teams and Conditions</Text>
-        </Text>
+      <View style={[styles.mt, {width: '100%'}]}>
+        <CustomButton>Activate Now</CustomButton>
+        <CustomButton secondary>Skip This</CustomButton>
       </View>
+      <FooterBottomLine />
     </CustomView>
   );
 };
@@ -54,10 +48,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     textAlign: 'center',
     paddingHorizontal: 35,
-    paddingVertical: 55,
+    paddingTop: 10,
   },
   mt: {
-    marginTop: 20,
+    marginTop: 10,
   },
   imageHolder: {
     display: 'flex',
@@ -65,14 +59,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   image: {
-    width: screenWIdth * 0.75,
+    maxWidth: screenWIdth * 0.75,
   },
   title: {
     fontFamily: 'DM Sans',
     fontStyle: 'normal',
     fontWeight: 'bold',
-    fontSize: 35,
-    lineHeight: 46,
+    fontSize: 26,
+    lineHeight: 28,
     textAlign: 'center',
     color: '#1C1939',
   },
@@ -90,4 +84,4 @@ const styles = StyleSheet.create({
     color: '#7165E3',
   },
 });
-export default AccountCreated;
+export default TouchId;

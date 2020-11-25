@@ -2,12 +2,15 @@ import React from 'react';
 import {Children} from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 
-const CustomButton = ({title, btnColor, children, ...rest}) => {
+const CustomButton = ({secondary, children, rounded, ...rest}) => {
   const buttonStyles = [styles.button];
-  if (btnColor) {
-    buttonStyles.push({backgroundColor: btnColor});
+  if (secondary !== undefined) {
+    buttonStyles.push({backgroundColor: '#9EA6BE'});
   }
 
+  if (rounded !== undefined) {
+    buttonStyles.push({borderRadius: 18.5});
+  }
   return (
     <TouchableOpacity {...rest} activeOpacity={0.8}>
       <View style={buttonStyles}>
@@ -26,6 +29,7 @@ const styles = StyleSheet.create({
     width: '100%',
     paddingVertical: 15,
     paddingHorizontal: 10,
+    margin: 5,
   },
   text: {
     color: '#fff',
