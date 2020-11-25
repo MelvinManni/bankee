@@ -18,7 +18,8 @@ const App = () => {
         screenOptions={{
           headerTitle: false,
         }}
-        initialRouteName="Splash">
+        initialRouteName="Splash"
+      >
         <Stack.Screen
           options={{
             headerShown: false,
@@ -33,7 +34,7 @@ const App = () => {
           }}
           name='SignUp'
           component={SignUp}
-        >
+        />
 
         <Stack.Screen
           options={{
