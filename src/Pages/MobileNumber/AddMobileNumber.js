@@ -12,7 +12,7 @@ const screenWIdth = Math.round(Dimensions.get('window').width);
 const AddMobileNumber = ({navigation}) => {
   const [countryCode, setCountryCode] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
-  
+
   return (
     <CustomView style={styles.container}>
       <View>
@@ -23,7 +23,7 @@ const AddMobileNumber = ({navigation}) => {
             to verify account.
           </Text>
         </View>
-        <View>
+        <View style={styles.number}>
           <CountryCodeInput
             value={phoneNumber}
             onChange={setPhoneNumber}
@@ -31,7 +31,7 @@ const AddMobileNumber = ({navigation}) => {
           />
         </View>
       </View>
-      <View style={styles.mt}>
+      <View style={{width: '100%'}}>
         <CustomButton
           onPress={() => {
             navigation.navigate('TouchId');
@@ -46,7 +46,7 @@ const AddMobileNumber = ({navigation}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'space-around',
+    justifyContent: 'space-evenly',
     alignItems: 'center',
     textAlign: 'center',
     paddingHorizontal: 35,
@@ -73,9 +73,9 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: 'rgba(28, 25, 57, 0.8)',
   },
-  link: {
-    textDecorationLine: 'underline',
-    color: '#7165E3',
+  number: {
+    marginTop: 60,
+    marginBottom: 100,
   },
 });
 export default AddMobileNumber;
