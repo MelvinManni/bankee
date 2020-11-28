@@ -1,42 +1,39 @@
 import React, { useState } from 'react';
-import { 
-    Text, 
-    View, 
-    StyleSheet 
+import {
+    Text,
+    View,
+    StyleSheet,
+    Dimensions,
 } from 'react-native';
+import CheckBox from '@react-native-community/checkbox';
 import InputField from '../../Components/Input/Input';
 import ButtonLarge from '../../Components/Button/Button';
 import CustomView from '../../Components/View/CustomView';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import FooterBottomLine from '../../Components/Footer/FooterBottomLine';
 
-const SignUp = ({navigation}) => {
+const screenWidth = Math.round(Dimensions.get('window').width);
+
+const SignUp = ({ navigation }) => {
 
     const [fullName, setFullName] = useState('');
     const [fullNameFocus, setFullNameFocus] = useState(false);
     const [email, setEmail] = useState('');
     const [emailFocus, setEmailFocus] = useState(false);
-    const [passwordOneFocus, setPasswordOneFocus] = useState(false);
-    const [passwordTwoFocus, setPasswordTwoFocus] = useState(false);
+    const [passwordFocus, setPasswordFocus] = useState(false);
 
-    const [isPasswordOne, setIsPasswordOne] = useState(true);
-    const [isPasswordTwo, setIsPasswordTwo] = useState(true);
+    const [isPassword, setIsPassword] = useState(true);
     const [eyeIcon, setEyeIcon] = useState('eye-off');
-    const [passwordOne, setPasswordOne] = useState('');
-    const [passwordTwo, setPasswordTwo] = useState('');
+    const [password, setPassword] = useState('');
 
-    const changePasswordViewIconOne = () => {
+    const changePasswordViewIcon = () => {
         setEyeIcon((prevItems) => {
-            return prevItems === 'eye' ? 'eye-off' : 'eye';
+          return prevItems === 'eye' ? 'eye-off' : 'eye';
         });
-        setIsPasswordOne(!isPasswordOne);
-    };
-    const changePasswordViewIconTwo = () => {
-        setEyeIcon((prevItems) => {
-            return prevItems === 'eye' ? 'eye-off' : 'eye';
-        });
-        setIsPasswordTwo(!isPasswordTwo);
-    };
+        setIsPassword(!isPassword);
+      };
+
+    const [toggleCheckBox, setToggleCheckBox] = useState(false)
 
     return (
         <CustomView style={styles.container}>
@@ -65,49 +62,53 @@ const SignUp = ({navigation}) => {
 
             <InputField
                 password
-                focus={passwordOneFocus}
-                // secureTextEntry={eyeIcon === 'eye-off' ? true : false}
-                onChange={setPasswordOne}
-                setFocus={setPasswordOneFocus}
+                focus={passwordFocus}
+                secureTextEntry={eyeIcon === 'eye-off' ? true : false}
+                onChange={setPassword}
+                setFocus={setPasswordFocus}
                 placeholder="Password"
-                value={passwordOne}
+                value={password}
                 icon={eyeIcon}
-                swapIcon={changePasswordViewIconOne}
+                swapIcon={changePasswordViewIcon}
             />
 
-            <InputField
-                password
-                focus={passwordTwoFocus}
-                // secureTextEntry={eyeIcon === 'eye-off' ? true : false}
-                onChange={setPasswordTwo}
-                setFocus={setPasswordTwoFocus}
-                placeholder="Password"
-                value={passwordTwo}
-                icon={eyeIcon}
-                swapIcon={changePasswordViewIconTwo}
-            />
+            <View style={styles.termsSection}>
+                <CheckBox
+                    // tintColor='red'
+                    value={toggleCheckBox} 
+                    tintColors={
+                        {
+                            true:'#7165E3', 
+                            false:'#7165E3'
+                        }
+                    }
+                    onValueChange={(value) => setToggleCheckBox(!toggleCheckBox)  }
+                    // onPress = {()=>setToggleCheckBox(!toggleCheckBox)}
+                />
+                <Text style={styles.terms}>By creating your account you have to agree with our Terms and Conditions.</Text>
+            </View>
 
             <ButtonLarge
                 onPress={() => {
                     navigation.navigate('Signin')
                 }}
-                
             >
                 Sign up my Account
             </ButtonLarge>
 
             <ButtonLarge
-                secondary
+                secondaryDark
             >
                 Sign up with Phone Number
             </ButtonLarge>
+
             <View style={styles.bottom}>
                 <Text>Already have an account? -</Text>
                 <TouchableOpacity
                     activeOpacity={0.5}
-                    onPress={() => navigation.navigate('SignUp')}
+                    onPress={() => navigation.navigate('Signin')}
                 >
-                    <Text style={styles.signIn}>Sign In</Text>
+                    <Text style={styles.signIn} >Sign In</Text>
                 </TouchableOpacity>
             </View>
 
@@ -121,7 +122,6 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         paddingHorizontal: 35,
-        // justifyContent: 'space-between',
     },
     welcome: {
         alignItems: 'center',
@@ -141,7 +141,18 @@ const styles = StyleSheet.create({
     welcomeSubHeadingTwo: {
         fontSize: 15,
         color: 'rgba(28, 25, 57, 0.8)',
-        marginBottom:50,
+        marginBottom: 40,
+    },
+    termsSection: {
+        flexDirection: 'row',
+        paddingVertical:20,
+        width: screenWidth * 0.7,
+    },
+    terms: {
+        fontFamily: 'DM Sans',
+        fontWeight: '400',
+        color: 'rgba(28, 25, 57, 0.8)',
+        fontSize: 13,
     },
     bottom: {
         flexDirection: 'row',
@@ -151,10 +162,10 @@ const styles = StyleSheet.create({
         fontSize: 15,
         marginTop: 19,
     },
-    signIn:{
+    signIn: {
         fontFamily: 'DM Sans',
-        fontSize:15,
-        fontWeight:'700',
+        fontSize: 15,
+        fontWeight: '700',
         paddingStart: 5,
     }
 
