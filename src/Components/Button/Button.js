@@ -2,10 +2,14 @@ import React from 'react';
 import {Children} from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 
-const CustomButton = ({secondary, children, rounded, ...rest}) => {
+const CustomButton = ({secondary, secondaryDark, children, rounded, ...rest}) => {
   const buttonStyles = [styles.button];
   if (secondary !== undefined) {
     buttonStyles.push({backgroundColor: '#9EA6BE'});
+  }
+
+  if(secondaryDark !== undefined) {
+    buttonStyles.push({backgroundColor:'#1C1939'});
   }
 
   if (rounded !== undefined) {

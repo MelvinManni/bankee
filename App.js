@@ -1,6 +1,7 @@
 import 'react-native-gesture-handler';
 import React from 'react';
 import SplashScreen from './src/Pages/Splash/SplashScreen';
+import SignUp from './src/Pages/SignUp/SignUp';
 import SignIn from './src/Pages/SignIn/SignIn';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
@@ -25,6 +26,7 @@ const App = () => {
           name="Splash"
           component={SplashScreen}
         />
+
         <Stack.Screen
           options={{
             headerShown: false,
@@ -32,14 +34,15 @@ const App = () => {
           name="Signin"
           component={SignIn}
         />
-
+        
         <Stack.Screen
           options={{
             headerShown: false,
           }}
-          name="AddNumber"
-          component={AddMobileNumber}
+          name="SignUp"
+          component={SignUp}
         />
+
         <Stack.Screen
           options={{
             headerShown: false,
