@@ -9,6 +9,7 @@ import AccountCreated from './src/Pages/AccountCreated/Index';
 import TouchId from './src/Pages/TouchId/TouchId';
 import AddMobileNumber from './src/Pages/MobileNumber/AddMobileNumber';
 import VerifyNumber from './src/Pages/VerifyingNumber/VerifyNumber';
+import SetPin from './src/Pages/SetPin/SetPin';
 
 const Stack = createStackNavigator();
 
@@ -67,6 +68,8 @@ const App = () => {
           name="VerifyNumber"
           component={VerifyNumber}
         />
+
+        <Stack.Screen name="SetPin" component={SetPin} />
 
         <Stack.Screen name="TouchId" component={TouchId} />
       </Stack.Navigator>

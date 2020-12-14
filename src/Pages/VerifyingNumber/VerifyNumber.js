@@ -42,12 +42,11 @@ const VerifyNumber = ({navigation}) => {
           <Text style={styles.text}>Didn’t not received the code?</Text>
           <Text style={styles.linkBold}>Resend Code</Text>
         </View>
-
       </View>
       <View style={styles.mt}>
         <CustomButton
           onPress={() => {
-            navigation.navigate('TouchId');
+            navigation.navigate('SetPin');
           }}>
           Proceed
         </CustomButton>

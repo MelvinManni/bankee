@@ -21,11 +21,11 @@ const SplashScreen = ({navigation}) => {
         useNativeDriver: true,
         toValue: 1,
         duration: 1200,
-        delay: 800, 
+        delay: 800,
       }),
     ]).start(() => {
       setTimeout(() => {
-        navigation.replace('SignUp');
+        navigation.replace('SetPin');
       }, 50);
     });
   }, []);
