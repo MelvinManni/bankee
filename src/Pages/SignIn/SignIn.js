@@ -64,13 +64,17 @@ const SignIn = ({navigation}) => {
         onPress={() => {
           navigation.navigate('AccountCreated');
         }}
-        btnColor="#7165E3">
+        btnColor="#7165E3"
+      >
         Sign in My Account
       </ButtonLarge>
 
       <View style={styles.bottom}>
         <Text>Don't have an account? -</Text>
-        <TouchableOpacity activeOpacity={0.5}>
+        <TouchableOpacity 
+          activeOpacity={0.5}
+          onPress={() => navigation.navigate('SignUp')}
+        >
           <Text style={styles.signUp}>Sign Up</Text>
         </TouchableOpacity>
       </View>
