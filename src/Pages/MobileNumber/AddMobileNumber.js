@@ -2,10 +2,6 @@ import React, {useState} from 'react';
 import {StyleSheet, Text, View, Dimensions} from 'react-native';
 import CustomButton from '../../Components/Button/Button';
 import CustomView from '../../Components/View/CustomView';
-import CountryPicker from 'react-native-country-picker-modal';
-import {TouchableOpacity} from 'react-native-gesture-handler';
-import nodeEmoji from 'node-emoji';
-import InputField from '../../Components/Input/Input';
 import CountryCodeInput from './CountryCodeInput';
 const screenWIdth = Math.round(Dimensions.get('window').width);
 
