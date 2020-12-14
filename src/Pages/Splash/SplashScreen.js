@@ -25,7 +25,7 @@ const SplashScreen = ({navigation}) => {
       }),
     ]).start(() => {
       setTimeout(() => {
-        navigation.replace('SignUp');
+        navigation.replace('VerifyNumber');
       }, 50);
     });
   }, []);
