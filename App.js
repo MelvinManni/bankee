@@ -34,7 +34,7 @@ const App = () => {
           name="Signin"
           component={SignIn}
         />
-        
+
         <Stack.Screen
           options={{
             headerShown: false,
@@ -49,6 +49,14 @@ const App = () => {
           }}
           name="AccountCreated"
           component={AccountCreated}
+        />
+
+        <Stack.Screen
+          options={{
+            headerShown: false,
+          }}
+          name="AddNumber"
+          component={AddMobileNumber}
         />
 
         <Stack.Screen name="TouchId" component={TouchId} />
