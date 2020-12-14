@@ -8,7 +8,6 @@ import {createStackNavigator} from '@react-navigation/stack';
 import AccountCreated from './src/Pages/AccountCreated/Index';
 import TouchId from './src/Pages/TouchId/TouchId';
 
-
 const Stack = createStackNavigator();
 
 const App = () => {
@@ -18,8 +17,7 @@ const App = () => {
         screenOptions={{
           headerTitle: false,
         }}
-        initialRouteName="Splash"
-      >
+        initialRouteName="Splash">
         <Stack.Screen
           options={{
             headerShown: false,
@@ -32,17 +30,18 @@ const App = () => {
           options={{
             headerShown: false,
           }}
-          name='SignUp'
-          component={SignUp}
+          name="Signin"
+          component={SignIn}
         />
-
+        
         <Stack.Screen
           options={{
             headerShown: false,
           }}
-          name="Signin"
-          component={SignIn}
+          name="SignUp"
+          component={SignUp}
         />
+
         <Stack.Screen
           options={{
             headerShown: false,
