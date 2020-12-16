@@ -30,7 +30,7 @@ const AddMobileNumber = ({navigation}) => {
       <View style={{width: '100%'}}>
         <CustomButton
           onPress={() => {
-            navigation.navigate('TouchId');
+            navigation.navigate('VerifyNumber');
           }}>
           Send Code
         </CustomButton>

@@ -8,6 +8,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import AccountCreated from './src/Pages/AccountCreated/Index';
 import TouchId from './src/Pages/TouchId/TouchId';
 import AddMobileNumber from './src/Pages/MobileNumber/AddMobileNumber';
+import VerifyNumber from './src/Pages/VerifyingNumber/VerifyNumber';
 
 const Stack = createStackNavigator();
 
@@ -57,6 +58,14 @@ const App = () => {
           }}
           name="AddNumber"
           component={AddMobileNumber}
+        />
+
+        <Stack.Screen
+          options={{
+            headerShown: false,
+          }}
+          name="VerifyNumber"
+          component={VerifyNumber}
         />
 
         <Stack.Screen name="TouchId" component={TouchId} />
