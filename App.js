@@ -7,6 +7,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import AccountCreated from './src/Pages/AccountCreated/Index';
 import TouchId from './src/Pages/TouchId/TouchId';
+import AddMobileNumber from './src/Pages/MobileNumber/AddMobileNumber';
 
 const Stack = createStackNavigator();
 
@@ -33,7 +34,7 @@ const App = () => {
           name="Signin"
           component={SignIn}
         />
-        
+
         <Stack.Screen
           options={{
             headerShown: false,
@@ -48,6 +49,14 @@ const App = () => {
           }}
           name="AccountCreated"
           component={AccountCreated}
+        />
+
+        <Stack.Screen
+          options={{
+            headerShown: false,
+          }}
+          name="AddNumber"
+          component={AddMobileNumber}
         />
 
         <Stack.Screen name="TouchId" component={TouchId} />

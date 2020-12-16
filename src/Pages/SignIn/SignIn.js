@@ -62,7 +62,7 @@ const SignIn = ({navigation}) => {
 
       <ButtonLarge
         onPress={() => {
-          navigation.navigate('AccountCreated');
+          navigation.navigate('TouchId');
         }}
         btnColor="#7165E3"
       >

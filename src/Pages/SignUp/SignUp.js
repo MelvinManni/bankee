@@ -77,7 +77,7 @@ const SignUp = ({navigation}) => {
               true: '#7165E3',
               false: '#7165E3',
             }}
-            onChange={()=> setToggleCheckBox(!toggleCheckBox)}
+            onChange={() => setToggleCheckBox(!toggleCheckBox)}
             onValueChange={(value) => setToggleCheckBox(value)}
           />
           <Text style={styles.terms}>
@@ -94,7 +94,13 @@ const SignUp = ({navigation}) => {
           Sign up my Account
         </ButtonLarge>
 
-        <ButtonLarge secondaryDark>Sign up with Phone Number</ButtonLarge>
+        <ButtonLarge
+          onPress={() => {
+            navigation.navigate('AddNumber');
+          }}
+          secondaryDark>
+          Sign up with Phone Number
+        </ButtonLarge>
 
         <View style={styles.bottom}>
           <Text>Already have an account? -</Text>

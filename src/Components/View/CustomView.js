@@ -22,7 +22,7 @@ export default function CustomView({
   return (
     <View style={{backgroundColor: returnColor(background), ...style}}>
       <StatusBar
-        backgroundColor={secondary !== undefined ? '#7165E3' : 'white'}
+        backgroundColor={secondary !== undefined ? '#7165E3' : '#fff'}
         barStyle={secondary !== undefined ? 'light-content' : 'dark-content'}
       />
       {children}
