@@ -25,7 +25,7 @@ const SplashScreen = ({navigation}) => {
       }),
     ]).start(() => {
       setTimeout(() => {
-        navigation.replace('SetPin');
+        navigation.replace('SignUp');
       }, 50);
     });
   }, []);
