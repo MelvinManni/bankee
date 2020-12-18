@@ -1,5 +1,4 @@
 import React from 'react';
-import {Children} from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 
 const CustomButton = ({secondary, secondaryDark, children, rounded, ...rest}) => {
