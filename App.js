@@ -11,6 +11,7 @@ import AddMobileNumber from './src/Pages/MobileNumber/AddMobileNumber';
 import VerifyNumber from './src/Pages/VerifyingNumber/VerifyNumber';
 import SetPin from './src/Pages/SetPin/SetPin';
 import BudgetScreen from './src/Pages/Budget/Budget';
+import MainScreen from './src/Pages/Main/Main';
 
 const Stack = createStackNavigator();
 
@@ -80,6 +81,14 @@ const App = () => {
           }}
           name="BudgetScreen"
           component={BudgetScreen}
+        />
+
+        <Stack.Screen
+          options={{
+            headerShown: false,
+          }}
+          name="MainScreen"
+          component={MainScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>

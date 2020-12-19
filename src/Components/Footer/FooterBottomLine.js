@@ -1,8 +1,8 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
 
-const FooterBottomLine = () => {
-  return <View style={styles.bottomLine}></View>;
+const FooterBottomLine = ({style}) => {
+  return <View style={[styles.bottomLine, style]}></View>;
 };
 
 const styles = StyleSheet.create({
