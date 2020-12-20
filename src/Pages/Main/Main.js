@@ -90,21 +90,21 @@ export default function MainScreen() {
           <View>
             <Text style={styles.title}>Activity</Text>
             <View style={styles.activityFlex}>
-              <Card>
+              <Card style={styles.rowCard}>
                 <View style={styles.activityIconHolder}>
                   <Icon style={styles.activityIcon} name="send" />
                 </View>
                 <Text style={styles.text}>Transfer</Text>
               </Card>
 
-              <Card>
+              <Card style={styles.rowCard}>
                 <View style={styles.activityIconHolder}>
                   <Icon style={styles.activityIcon} name="credit-card-alt" />
                 </View>
                 <Text style={styles.text}>My Card</Text>
               </Card>
 
-              <Card>
+              <Card style={styles.rowCard}>
                 <View style={styles.activityIconHolder}>
                   <Icon style={styles.activityIcon} name="bar-chart" />
                 </View>
@@ -206,6 +206,11 @@ const styles = StyleSheet.create({
   },
   row: {
     flexDirection: 'row',
+  },
+  rowCard: {
+    width: '30%',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   title: {
     fontFamily: 'DM Sans',
