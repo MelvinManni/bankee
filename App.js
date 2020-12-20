@@ -12,16 +12,29 @@ import VerifyNumber from './src/Pages/VerifyingNumber/VerifyNumber';
 import SetPin from './src/Pages/SetPin/SetPin';
 import BudgetScreen from './src/Pages/Budget/Budget';
 import MainScreen from './src/Pages/Main/Main';
+import DetailsScreen from './src/Pages/Details/Details';
+import TextButton from './src/Components/Button/TextButton';
+import Icon from 'react-native-vector-icons/Entypo';
 
 const Stack = createStackNavigator();
 
-const App = () => {
+const App = ({navigation}) => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        screenOptions={{
+        screenOptions={({navigation}) => ({
           headerTitle: false,
-        }}
+          headerLeft: () => (
+            <Icon
+              onPress={() => {
+                navigation.goBack();
+              }}
+              name="chevron-left"
+              style={{marginLeft: 25, fontSize: 28}}
+            />
+            // <TextButton style={{marginLeft: 35}}> Hello </TextButton>
+          ),
+        })}
         initialRouteName="Splash">
         <Stack.Screen
           options={{
@@ -89,6 +102,16 @@ const App = () => {
           }}
           name="MainScreen"
           component={MainScreen}
+        />
+
+        <Stack.Screen
+          options={{
+            headerRight: () => (
+              <TextButton style={{marginRight: 35}}>Set Budget</TextButton>
+            ),
+          }}
+          name="DetailsScreen"
+          component={DetailsScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>
