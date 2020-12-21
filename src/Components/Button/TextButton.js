@@ -17,7 +17,8 @@ const styles = StyleSheet.create({
     color: '#7165E3',
     fontWeight: 'bold',
     textAlign: 'left',
-    fontSize: 13,
-    lineHeight: 20,
+    fontSize: 16,
+    lineHeight: 20.83,
+    padding: 5,
   },
 });

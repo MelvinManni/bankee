@@ -1,30 +1,90 @@
-import React, {useState} from 'react';
-import {Dimensions, Image, StyleSheet, Text, View} from 'react-native';
+import React from 'react';
+import {Image, StyleSheet, Text, View} from 'react-native';
 import {ScrollView, TouchableOpacity} from 'react-native-gesture-handler';
 import Card from '../../Components/Cards/Card';
 import CardBody from '../../Components/Cards/CardBody';
 import CustomView from '../../Components/View/CustomView';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import EntypoIcon from 'react-native-vector-icons/Entypo';
-import Divider from '../../Components/Divider/Divider';
 import FooterBottomLine from '../../Components/Footer/FooterBottomLine';
 import CustomLineChart from '../../Components/Charts/LineChart';
+import {AnimatedCircularProgress} from 'react-native-circular-progress';
 
-const curveHeight = Dimensions.get('window').height * 0.4;
-const curveWidth = Dimensions.get('window').width;
+const listData = [
+  {
+    icon: (
+      <Image
+        style={{
+          width: '80%',
+        }}
+        source={require('../../assets/pizzahut.png')}
+      />
+    ),
+    title: 'PizzaHut',
+    text: '4 transactions',
+    amount: '200',
+  },
+  {
+    icon: (
+      <Image
+        style={{
+          width: '80%',
+        }}
+        source={require('../../assets/amazon.png')}
+      />
+    ),
+    title: 'Amazon',
+    text: '3 transactions',
+    amount: '180',
+  },
+  {
+    icon: (
+      <Image
+        style={{
+          width: '80%',
+        }}
+        source={require('../../assets/subway.png')}
+      />
+    ),
+    title: 'Subway',
+    text: '2 transactions',
+    amount: '125',
+  },
+];
+
+const List = ({icon = '', title, text, amount}) => {
+  return (
+    <View style={styles.list}>
+      <View style={styles.listRow}>
+        <Card style={styles.listIcon}>{icon}</Card>
+        <View>
+          <Text style={styles.listTitle}>{title}</Text>
+          <Text style={styles.listText}>{text}</Text>
+        </View>
+      </View>
+      <View>
+        <Text style={[styles.title, {marginTop: 0, marginBottom: 0}]}>
+          ${amount}
+        </Text>
+      </View>
+    </View>
+  );
+};
 
 export default function DetailsScreen() {
-  const [verifyPercent] = useState(75);
-
   return (
     <CustomView style={styles.container} secondary>
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.header}>
+          <View style={{paddingHorizontal: 35}}>
+            <Text style={styles.headerTitle}>Your balance is $2,639</Text>
+            <Text style={styles.headerText}>
+              By this time last month, you spent slight higher ($2,719)
+            </Text>
+          </View>
           <CustomLineChart />
         </View>
-        <View style={{paddingHorizontal: 35}}>
+        <View style={{paddingHorizontal: 20}}>
           <View>
-            <Card>
+            <Card style={styles.transactionCard}>
               <CardBody style={{marginBottom: 0}}>
                 <View style={styles.transactionContainer}>
                   {/* //earned */}
@@ -60,108 +120,70 @@ export default function DetailsScreen() {
           </View>
 
           <View>
-            <Text style={styles.title}>Activity</Text>
-            <View style={styles.activityFlex}>
-              <Card style={styles.rowCard}>
-                <View style={styles.activityIconHolder}>
-                  <Icon style={styles.activityIcon} name="send" />
-                </View>
-                <Text style={styles.text}>Transfer</Text>
-              </Card>
-
-              <Card style={styles.rowCard}>
-                <View style={styles.activityIconHolder}>
-                  <Icon style={styles.activityIcon} name="credit-card-alt" />
-                </View>
-                <Text style={styles.text}>My Card</Text>
-              </Card>
-
-              <Card style={styles.rowCard}>
-                <View style={styles.activityIconHolder}>
-                  <Icon style={styles.activityIcon} name="bar-chart" />
-                </View>
-                <Text style={styles.text}>Insight</Text>
-              </Card>
-            </View>
+            <Text style={[styles.title, {paddingTop: 10}]}>
+              Top Transaction
+            </Text>
+            {listData.map((item, index) => {
+              const {icon, title, text, amount} = item;
+              return (
+                <List
+                  key={index}
+                  icon={icon}
+                  title={title}
+                  text={text}
+                  amount={amount}
+                />
+              );
+            })}
           </View>
 
           <View>
-            <Text style={styles.title}>Complete Verification</Text>
+            <Text style={styles.title}>Top Category</Text>
+            <View style={styles.categoryFlex}>
+              <Card style={styles.rowCard}>
+                <AnimatedCircularProgress
+                  size={120}
+                  width={10}
+                  fill={34}
+                  arcSweepAngle={240}
+                  rotation={240}
+                  style={{borderRadius: 4}}
+                  tintColor="#7165E3"
+                  backgroundColor="#E6EAEE">
+                  {(fill) => <Text style={{fontSize: 42}}>🍔</Text>}
+                </AnimatedCircularProgress>
 
-            <Card>
-              <View style={styles.verifyFlex}>
-                <Text style={styles.verifyFlexTitle}>{verifyPercent}%</Text>
-                <Text style={styles.verifyFlexText}>7 of 10 completed</Text>
-              </View>
-
-              <View style={styles.verifyBar}>
-                <View
-                  style={[styles.verifyProgress, {width: `${verifyPercent}%`}]}
-                />
-              </View>
-              <Divider style={{marginBottom: 15}} />
-              <View style={styles.row}>
-                <Icon name="user" style={styles.verifyIcon} />
-                <View>
-                  <Text style={styles.subTitle}>Personal Information</Text>
-                  <Text style={[styles.text, {marginBottom: 17}]}>
-                    When you register for an account, we collectt personal
-                    informmation
-                  </Text>
-                  <TouchableOpacity>
-                    <Text
-                      style={[
-                        styles.text,
-                        {color: '#7165E3', fontWeight: 'bold'},
-                      ]}>
-                      Continue
-                    </Text>
+                <View style={styles.centerText}>
+                  <Text style={styles.cartegoryTitle}>Lunch & Dinner</Text>
+                  <Text style={styles.cartegoryText}>$450</Text>
+                  <TouchableOpacity style={styles.cartegoryButton}>
+                    <Text style={styles.cartegoryButtonText}>on track</Text>
                   </TouchableOpacity>
                 </View>
-              </View>
-              <Divider style={{width: '80%', ...styles.verifyGap}} />
-              <View style={styles.row}>
-                <Icon name="id-card" style={styles.verifyIcon} />
-                <Text style={styles.text}>Verification</Text>
-              </View>
-              <Divider style={{width: '80%', ...styles.verifyGap}} />
-              <View style={[styles.row, {marginBottom: 20}]}>
-                <EntypoIcon name="mail" style={styles.verifyIcon} />
-                <Text style={styles.text}>Verification</Text>
-              </View>
-            </Card>
-          </View>
+              </Card>
 
-          <View>
-            <Text style={styles.title}>News and promo</Text>
+              <Card style={styles.rowCard}>
+                <AnimatedCircularProgress
+                  size={120}
+                  width={10}
+                  fill={72}
+                  arcSweepAngle={240}
+                  rotation={240}
+                  style={{borderRadius: 4}}
+                  tintColor="#7165E3"
+                  backgroundColor="#E6EAEE">
+                  {(fill) => <Text style={{fontSize: 32}}>🏥</Text>}
+                </AnimatedCircularProgress>
 
-            <Card style={{padding: 0}}>
-              <Image
-                style={{
-                  width: '100%',
-                  borderTopLeftRadius: 10,
-                  borderTopRightRadius: 10,
-                  // height: 40,
-                }}
-                source={require('../../assets/news.png')}
-              />
-              <CardBody style={{padding: 15}}>
-                <Text style={styles.subTitle}>Share Invite your friends!</Text>
-                <Text style={[styles.text, {marginBottom: 17}]}>
-                  Invite friends register on our app. For every user you invite.
-                  you can earn up $12
-                </Text>
-                <TouchableOpacity>
-                  <Text
-                    style={[
-                      styles.text,
-                      {color: '#7165E3', fontWeight: 'bold'},
-                    ]}>
-                    Invite Now
-                  </Text>
-                </TouchableOpacity>
-              </CardBody>
-            </Card>
+                <View style={styles.centerText}>
+                  <Text style={styles.cartegoryTitle}>Medical Allowances</Text>
+                  <Text style={styles.cartegoryText}>$330</Text>
+                  <TouchableOpacity style={styles.cartegoryButton}>
+                    <Text style={styles.cartegoryButtonText}>on track</Text>
+                  </TouchableOpacity>
+                </View>
+              </Card>
+            </View>
           </View>
 
           <FooterBottomLine />
@@ -176,11 +198,8 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#F9F9FB',
   },
-  row: {
-    flexDirection: 'row',
-  },
   rowCard: {
-    width: '30%',
+    width: '47%',
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -214,58 +233,35 @@ const styles = StyleSheet.create({
     fontSize: 13,
     lineHeight: 20,
   },
-  blockView: {
-    backgroundColor: '#7165E3',
-    width: curveWidth,
-    height: curveHeight,
-    position: 'absolute',
-    top: 0,
-  },
   header: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'flex-start',
-    marginTop: 55,
-    marginBottom: 35,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 35,
   },
-
-  balance: {
+  headerTitle: {
     fontFamily: 'DM Sans',
     fontStyle: 'normal',
     fontWeight: 'bold',
-    textAlign: 'left',
-    color: '#FFFFFF',
-    fontSize: 35,
-    lineHeight: 46,
-    marginBottom: 3,
+    textAlign: 'center',
+    color: '#1C1939',
+    fontSize: 22,
+    lineHeight: 29,
+    marginBottom: 10,
   },
-  balanceText: {
+  headerText: {
     fontFamily: 'DM Sans',
     fontStyle: 'normal',
-    fontWeight: 'bold',
-    textAlign: 'left',
-    color: 'rgba(255, 255, 255, 0.8)',
+    fontWeight: 'normal',
+    textAlign: 'center',
+    color: 'rgba(28, 25, 57, 0.8)',
     fontSize: 15,
-    lineHeight: 20,
-    marginBottom: 3,
+    lineHeight: 25,
+    marginBottom: 45,
   },
-
-  image: {
-    width: 50,
-    height: 50,
-    borderRadius: 10,
-  },
-  onlineIndicator: {
+  transactionCard: {
     position: 'absolute',
-    bottom: -2,
-    left: -2,
-    borderWidth: 2,
-    borderColor: '#fff',
-    elevation: 1,
-    width: 14,
-    height: 14,
-    borderRadius: 7,
-    backgroundColor: '#7165E3',
+    width: '100%',
+    top: -70,
   },
   transactionContainer: {
     flexDirection: 'row',
@@ -302,73 +298,95 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     marginRight: 8,
   },
-  // activity style
-  activityFlex: {
+  //list style
+  list: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+    borderBottomColor: '#D2D1D7',
+    borderBottomWidth: 0.8,
+    paddingVertical: 20,
   },
-  activityIconHolder: {
-    padding: 10,
-    width: 40,
-    height: 40,
-    display: 'flex',
+  listRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: '100%',
+  },
+  listIcon: {
+    width: 45,
+    height: 45,
+    borderRadius: 16,
+    marginRight: 25,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 15,
-    backgroundColor: '#7165E3',
-    borderRadius: 10,
+    marginBottom: 0,
+    padding: 10,
   },
-  activityIcon: {
-    color: '#fff',
-    fontSize: 15,
-  },
-
-  //Verification style
-  verifyFlex: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 15,
-    marginTop: 10,
-  },
-  verifyFlexTitle: {
+  listTitle: {
     fontFamily: 'DM Sans',
     fontStyle: 'normal',
     fontWeight: 'bold',
-    textAlign: 'left',
     color: '#1C1939',
-    fontSize: 25,
-    lineHeight: 32,
+    fontSize: 16,
+    lineHeight: 21,
+    marginBottom: 5,
   },
-  verifyFlexText: {
+  listText: {
     fontFamily: 'DM Sans',
     fontStyle: 'normal',
     fontWeight: 'normal',
-    textAlign: 'left',
-    color: '#1C1939',
-    fontSize: 12,
-    lineHeight: 15.2,
-  },
-  verifyBar: {
-    width: '100%',
-    height: 10,
-    backgroundColor: 'rgba(28, 25, 57, 0.2)',
-    borderRadius: 5,
-    marginBottom: 20,
-  },
-  verifyProgress: {
-    height: '100%',
-    backgroundColor: '#7165E3',
-    borderRadius: 5,
-  },
-  verifyGap: {
-    marginVertical: 20,
-  },
-  verifyIcon: {
-    color: '#7165E3',
+    color: 'rgba(28, 25, 57, 0.8)',
     fontSize: 15,
-    marginRight: 20,
+    lineHeight: 20,
+  },
+  // category style
+  categoryFlex: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  centerText: {
+    flexDirection: 'column',
+    width: '100%',
+    alignItems: 'center',
+    marginTop: 10,
+  },
+  cartegoryTitle: {
+    fontFamily: 'DM Sans',
+    fontStyle: 'normal',
+    fontWeight: 'bold',
+    color: '#1C1939',
+    textAlign: 'center',
+    fontSize: 16,
+    lineHeight: 21,
+    marginBottom: 5,
+  },
+  cartegoryText: {
+    fontFamily: 'DM Sans',
+    fontStyle: 'normal',
+    fontWeight: 'normal',
+    color: 'rgba(28, 25, 57, 0.8)',
+    fontSize: 15,
+    lineHeight: 20,
+    marginTop: 5,
+    marginBottom: 10,
+    textAlign: 'center',
+  },
+  cartegoryButton: {
+    backgroundColor: '#F9F9FB',
+    padding: 5,
+    borderRadius: 15,
+    width: 80,
+  },
+  cartegoryButtonText: {
+    fontFamily: 'DM Sans',
+    fontStyle: 'normal',
+    fontWeight: 'normal',
+    color: '#7D8CBA',
+    fontSize: 12,
+    lineHeight: 20,
+    textAlign: 'center',
   },
 });
