@@ -154,7 +154,9 @@ export default function TransferScreen() {
               contacts.data
                 .filter((o, i) => i < 10)
                 .map((item) => (
-                  <Card style={{marginRight: 15, width: curveWidth * 0.34 }}>
+                  <Card
+                    key={item.id}
+                    style={{marginRight: 15, width: curveWidth * 0.34}}>
                     <HorizontalContact
                       name={item.name}
                       number={item.number[0]}
