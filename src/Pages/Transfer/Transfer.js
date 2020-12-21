@@ -45,7 +45,6 @@ export default function TransferScreen() {
         setLoad(true);
         Contacts.getAll()
           .then((contacts) => {
-            console.log(contacts);
             let data = contacts
               .filter((o, i) => i < 40)
               .map((item) => ({
@@ -91,7 +90,6 @@ export default function TransferScreen() {
           item.number.toString().toLowerCase().includes(value.toLowerCase())),
     );
     setContacts((prev) => ({...prev, rendered: filteredData}));
-    console.log(filteredData);
   };
 
   return (
