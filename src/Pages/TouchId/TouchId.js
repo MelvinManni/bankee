@@ -14,7 +14,7 @@ import CustomView from '../../Components/View/CustomView';
 
 const screenWIdth = Math.round(Dimensions.get('window').width);
 
-const TouchId = () => {
+const TouchId = ({navigation}) => {
   return (
     <CustomView style={styles.container}>
       <StatusBar backgroundColor="#fff" barStyle="dark-content" />
@@ -34,7 +34,13 @@ const TouchId = () => {
 
       <View style={[styles.mt, {width: '100%'}]}>
         <CustomButton>Activate Now</CustomButton>
-        <CustomButton secondary>Skip This</CustomButton>
+        <CustomButton
+          onPress={() => {
+            navigation.navigate('BudgetScreen');
+          }}
+          secondary>
+          Skip This
+        </CustomButton>
       </View>
       <FooterBottomLine />
     </CustomView>
