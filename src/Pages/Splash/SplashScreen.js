@@ -25,7 +25,7 @@ const SplashScreen = ({navigation}) => {
       }),
     ]).start(() => {
       setTimeout(() => {
-        navigation.replace('SavingScoreScreen');
+        navigation.replace('TransferScreen');
       }, 50);
     });
   }, []);

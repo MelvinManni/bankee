@@ -1,14 +1,21 @@
 import React from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 
-const CustomButton = ({secondary, secondaryDark, children, rounded, ...rest}) => {
-  const buttonStyles = [styles.button];
+const CustomButton = ({
+  secondary,
+  secondaryDark,
+  children,
+  rounded,
+  style,
+  ...rest
+}) => {
+  const buttonStyles = [styles.button, style];
   if (secondary !== undefined) {
     buttonStyles.push({backgroundColor: '#9EA6BE'});
   }
 
-  if(secondaryDark !== undefined) {
-    buttonStyles.push({backgroundColor:'#1C1939'});
+  if (secondaryDark !== undefined) {
+    buttonStyles.push({backgroundColor: '#1C1939'});
   }
 
   if (rounded !== undefined) {
@@ -33,6 +40,8 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
     paddingHorizontal: 10,
     margin: 5,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   text: {
     color: '#fff',

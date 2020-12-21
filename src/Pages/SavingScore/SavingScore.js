@@ -1,13 +1,9 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Dimensions, Image, StyleSheet, Text, View} from 'react-native';
-import {ScrollView, TouchableOpacity} from 'react-native-gesture-handler';
+import {ScrollView} from 'react-native-gesture-handler';
 import Card from '../../Components/Cards/Card';
 import CardBody from '../../Components/Cards/CardBody';
-import CardFooter from '../../Components/Cards/CardFooter';
 import CustomView from '../../Components/View/CustomView';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import EntypoIcon from 'react-native-vector-icons/Entypo';
-import Divider from '../../Components/Divider/Divider';
 import FooterBottomLine from '../../Components/Footer/FooterBottomLine';
 import {signNumber} from '../../Utils/utils';
 import TextButton from '../../Components/Button/TextButton';
@@ -16,8 +12,6 @@ const curveHeight = Dimensions.get('window').height * 0.4;
 const curveWidth = Dimensions.get('window').width;
 
 export default function SavingScoreScreen() {
-  const [verifyPercent] = useState(75);
-
   return (
     <CustomView style={styles.container} secondary>
       <ScrollView showsVerticalScrollIndicator={false}>

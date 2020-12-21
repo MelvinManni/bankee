@@ -16,10 +16,11 @@ import DetailsScreen from './src/Pages/Details/Details';
 import TextButton from './src/Components/Button/TextButton';
 import Icon from 'react-native-vector-icons/Entypo';
 import SavingScoreScreen from './src/Pages/SavingScore/SavingScore';
+import TransferScreen from './src/Pages/Transfer/Transfer';
 
 const Stack = createStackNavigator();
 
-const App = ({navigation}) => {
+const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
@@ -120,6 +121,14 @@ const App = ({navigation}) => {
           }}
           name="SavingScoreScreen"
           component={SavingScoreScreen}
+        />
+
+        <Stack.Screen
+          options={{
+            headerShown: false,
+          }}
+          name="TransferScreen"
+          component={TransferScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>
