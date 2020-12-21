@@ -15,6 +15,7 @@ import MainScreen from './src/Pages/Main/Main';
 import DetailsScreen from './src/Pages/Details/Details';
 import TextButton from './src/Components/Button/TextButton';
 import Icon from 'react-native-vector-icons/Entypo';
+import SavingScoreScreen from './src/Pages/SavingScore/SavingScore';
 
 const Stack = createStackNavigator();
 
@@ -32,7 +33,6 @@ const App = ({navigation}) => {
               name="chevron-left"
               style={{marginLeft: 25, fontSize: 28}}
             />
-            // <TextButton style={{marginLeft: 35}}> Hello </TextButton>
           ),
         })}
         initialRouteName="Splash">
@@ -112,6 +112,14 @@ const App = ({navigation}) => {
           }}
           name="DetailsScreen"
           component={DetailsScreen}
+        />
+
+        <Stack.Screen
+          options={{
+            headerShown: false,
+          }}
+          name="SavingScoreScreen"
+          component={SavingScoreScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>
