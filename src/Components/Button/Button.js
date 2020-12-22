@@ -22,8 +22,8 @@ const CustomButton = ({
     buttonStyles.push({borderRadius: 18.5});
   }
   return (
-    <TouchableOpacity {...rest} activeOpacity={0.8}>
-      <View style={buttonStyles}>
+    <TouchableOpacity style={buttonStyles} {...rest} activeOpacity={0.8}>
+      <View>
         <Text style={styles.text}>{children}</Text>
       </View>
     </TouchableOpacity>
