@@ -1,15 +1,12 @@
 import React from 'react';
 import {Image, StyleSheet, View} from 'react-native';
-
+import Icon from 'react-native-vector-icons/FontAwesome';
 const AvatarIcon = ({hasIcon, uri, style}) => (
   <View style={[styles.avatarHolder, style]}>
     {hasIcon === true ? (
       <Image style={styles.avatarThumb} source={{uri: uri}} />
     ) : (
-      <Image
-        style={styles.defaultAvatar}
-        source={require('../../assets/user.png')}
-      />
+      <Icon style={styles.defaultAvatar} name="user-o" />
     )}
   </View>
 );
@@ -30,7 +27,8 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   defaultAvatar: {
-    width: '70%',
+    fontSize: 24,
+    color: "#fff"
   },
 });
 

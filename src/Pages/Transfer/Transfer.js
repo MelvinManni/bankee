@@ -2,16 +2,11 @@ import React, {useEffect, useState} from 'react';
 import {Dimensions, Image, StyleSheet, Text, View} from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';
 import Card from '../../Components/Cards/Card';
-import CardBody from '../../Components/Cards/CardBody';
 import CustomView from '../../Components/View/CustomView';
-import FooterBottomLine from '../../Components/Footer/FooterBottomLine';
-import {signNumber} from '../../Utils/utils';
-import TextButton from '../../Components/Button/TextButton';
 import {PermissionsAndroid} from 'react-native';
 import Contacts from 'react-native-contacts';
 import Loader from '../../Components/Loader/Loader';
 import TransferHeaderIcons from './components/HeaderIcons';
-import CustomButton from '../../Components/Button/Button';
 import SearchInput from '../../Components/Input/SearchInput';
 import VerticalContact from '../../Components/Cards/VerticalContact';
 import HorizontalContact from '../../Components/Cards/HorizontalContact';
@@ -240,48 +235,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: '100%',
   },
-  headerIconHolder: {
-    padding: 10,
-    width: 40,
-    height: 40,
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: 15,
-    backgroundColor: '#665AD9',
-    borderRadius: 10,
-  },
-  headerIcon: {
-    fontSize: 15,
-  },
-  scoreViewText: {
-    fontFamily: 'DM Sans',
-    fontStyle: 'normal',
-    fontWeight: 'bold',
-    textAlign: 'center',
-    color: '#FFF',
-    fontSize: 22,
-    lineHeight: 28.6,
-  },
-  scoreViewSubtext: {
-    fontFamily: 'DM Sans',
-    fontStyle: 'normal',
-    fontWeight: 'normal',
-    textAlign: 'center',
-    color: '#FFF',
-    fontSize: 18,
-    lineHeight: 25,
-    opacity: 0.8,
-  },
-  row: {
-    flexDirection: 'row',
-  },
-  rowCard: {
-    width: '30%',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
   title: {
     fontFamily: 'DM Sans',
     fontStyle: 'normal',
@@ -292,47 +245,5 @@ const styles = StyleSheet.create({
     lineHeight: 23,
     marginTop: 20,
     marginBottom: 15,
-  },
-  subTitle: {
-    fontFamily: 'DM Sans',
-    fontStyle: 'normal',
-    fontWeight: 'bold',
-    textAlign: 'left',
-    color: '#9EA6BE',
-    fontSize: 16,
-    lineHeight: 20.83,
-    marginBottom: 10,
-  },
-  text: {
-    fontFamily: 'DM Sans',
-    fontStyle: 'normal',
-    fontWeight: 'bold',
-    textAlign: 'left',
-    color: '#1C1939',
-    fontSize: 13,
-    lineHeight: 20,
-    flexShrink: 1,
-    marginBottom: 15,
-  },
-  scoreHolder: {
-    padding: 5,
-    width: 50,
-    height: 50,
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#7165E3',
-    borderRadius: 16,
-    marginRight: 20,
-  },
-  scoreText: {
-    fontFamily: 'DM Sans',
-    fontStyle: 'normal',
-    fontWeight: 'bold',
-    textAlign: 'left',
-    color: '#fff',
-    fontSize: 15,
-    lineHeight: 20,
   },
 });
