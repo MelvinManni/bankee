@@ -17,6 +17,7 @@ import TextButton from './src/Components/Button/TextButton';
 import Icon from 'react-native-vector-icons/Entypo';
 import SavingScoreScreen from './src/Pages/SavingScore/SavingScore';
 import TransferScreen from './src/Pages/Transfer/Transfer';
+import RecieptScreen from './src/Pages/Reciept/Reciept';
 
 const Stack = createStackNavigator();
 
@@ -129,6 +130,14 @@ const App = () => {
           }}
           name="TransferScreen"
           component={TransferScreen}
+        />
+
+        <Stack.Screen
+          options={{
+            headerShown: false,
+          }}
+          name="RecieptScreen"
+          component={RecieptScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>

@@ -1,10 +1,9 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
 
-export default function BudgetCard({children, style}) {
+export default function CardHeader({children, style}) {
   return <View style={[styles.header, style]}>{children}</View>;
 }
-
 
 const styles = StyleSheet.create({
   header: {

@@ -9,16 +9,26 @@ export default function VerticalContact({
   uri,
   name,
   number,
+  style,
+  title,
+  descriptive,
   ...rest
 }) {
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, style]}>
       <View style={{flexDirection: 'row', alignItems: 'center'}}>
         <AvatarIcon hasIcon={hasIcon} uri={uri} />
-        <View style={{marginLeft: 15}}>
-          <Text style={[styles.contactName]}>{name}</Text>
-          <Text style={[styles.contactNumber]}>{number}</Text>
-        </View>
+        {descriptive === undefined ? (
+          <View style={{marginLeft: 15}}>
+            <Text style={[styles.contactName]}>{name}</Text>
+            <Text style={[styles.contactNumber]}>{number}</Text>
+          </View>
+        ) : (
+          <View style={{marginLeft: 15}}>
+            <Text style={[styles.contactNumber]}>{title}</Text>
+            <Text style={[styles.contactName]}>{name}</Text>
+          </View>
+        )}
       </View>
 
       {showInvite === true && (
