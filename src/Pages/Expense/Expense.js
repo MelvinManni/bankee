@@ -90,6 +90,7 @@ export default function ExpenseScreen({navigation}) {
             source={require('../../assets/expense.png')}
           />
           <Text style={styles.headerAmount}>$1860</Text>
+          
         </View>
         <View style={{paddingHorizontal: 20, marginTop: 10}}>
           <View>
