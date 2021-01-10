@@ -18,6 +18,8 @@ import Icon from 'react-native-vector-icons/Entypo';
 import SavingScoreScreen from './src/Pages/SavingScore/SavingScore';
 import TransferScreen from './src/Pages/Transfer/Transfer';
 import RecieptScreen from './src/Pages/Reciept/Reciept';
+import ExpenseScreen from './src/Pages/Expense/Expense';
+import {StyleSheet, Text} from 'react-native';
 
 const Stack = createStackNavigator();
 
@@ -26,7 +28,6 @@ const App = () => {
     <NavigationContainer>
       <Stack.Navigator
         screenOptions={({navigation}) => ({
-          headerTitle: false,
           headerLeft: () => (
             <Icon
               onPress={() => {
@@ -40,6 +41,7 @@ const App = () => {
         initialRouteName="Splash">
         <Stack.Screen
           options={{
+            headerTitle: false,
             headerShown: false,
           }}
           name="Splash"
@@ -86,9 +88,17 @@ const App = () => {
           component={VerifyNumber}
         />
 
-        <Stack.Screen name="SetPin" component={SetPin} />
+        <Stack.Screen
+          options={{headerTitle: false}}
+          name="SetPin"
+          component={SetPin}
+        />
 
-        <Stack.Screen name="TouchId" component={TouchId} />
+        <Stack.Screen
+          options={{headerTitle: false}}
+          name="TouchId"
+          component={TouchId}
+        />
 
         <Stack.Screen
           options={{
@@ -108,6 +118,7 @@ const App = () => {
 
         <Stack.Screen
           options={{
+            headerTitle: false,
             headerRight: () => (
               <TextButton style={{marginRight: 35}}>Set Budget</TextButton>
             ),
@@ -139,9 +150,30 @@ const App = () => {
           name="RecieptScreen"
           component={RecieptScreen}
         />
+
+        <Stack.Screen
+          name="ExpenseScreen"
+          component={ExpenseScreen}
+          options={{
+            headerTitleStyle: styles.title,
+            title: 'Expenses',
+            headerTitleAlign: 'center',
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
 };
+
+const styles = StyleSheet.create({
+  title: {
+    fontFamily: 'DM Sans',
+    fontStyle: 'normal',
+    fontWeight: 'bold',
+    color: '#1C1939',
+    fontSize: 20,
+    lineHeight: 26,
+  },
+});
 
 export default App;
