@@ -15,6 +15,7 @@ const Toggle = ({state, setState}) => {
       />
     </View>
   );
+  
 };
 
 const styles = StyleSheet.create({
