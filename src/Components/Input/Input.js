@@ -25,7 +25,7 @@ const InputField = ({
         onChangeText={(text) => onChange(text)}
         value={value}
         onBlur={() => setFocus(false)}
-        onFocus={() => setFocus(true)}
+        onFocus={setFocus !== undefined ? () => setFocus(true) : null}
         style={[focus ? styles.focus : styles.input, style]}
       />
       {password && (
