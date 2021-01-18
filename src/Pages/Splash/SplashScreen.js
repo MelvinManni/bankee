@@ -25,7 +25,7 @@ const SplashScreen = ({navigation}) => {
       }),
     ]).start(() => {
       setTimeout(() => {
-        navigation.replace('RecieptScreen');
+        navigation.replace('QrCodeScreen');
       }, 50);
     });
   }, []);

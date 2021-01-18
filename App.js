@@ -18,6 +18,7 @@ import Icon from 'react-native-vector-icons/Entypo';
 import SavingScoreScreen from './src/Pages/SavingScore/SavingScore';
 import TransferScreen from './src/Pages/Transfer/Transfer';
 import RecieptScreen from './src/Pages/Reciept/Reciept';
+import QrCodeScreen from './src/Pages/QrCode/QrCode';
 
 const Stack = createStackNavigator();
 
@@ -138,6 +139,14 @@ const App = () => {
           }}
           name="RecieptScreen"
           component={RecieptScreen}
+        />
+
+        <Stack.Screen
+          options={{
+            headerShown: false,
+          }}
+          name="QrCodeScreen"
+          component={QrCodeScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>
